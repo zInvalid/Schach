@@ -6,15 +6,17 @@ import listener.MoveListener;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by Invalid on 16.03.2017.
- */
 public class FeldLabel extends JButton
 {
     /**
      * Cache label, which gets first clicked
      */
     public static FeldLabel prevLabel = null;
+
+    /**
+     * Players turn
+     */
+    public static FigurColor turn = null;
 
     private FigurColor figurColor;
 

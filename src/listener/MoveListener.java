@@ -21,15 +21,23 @@ public class MoveListener implements MouseListener
 
         if (FeldLabel.prevLabel == null && jLabel.getIcon() != null)
         {
-            FeldLabel.prevLabel = jLabel;
-            jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
+            if (jLabel.getFigurColor().equals(FeldLabel.turn))
+            {
+                FeldLabel.prevLabel = jLabel;
+                jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
+            }
+            else
+                JOptionPane.showMessageDialog(null, FeldLabel.turn.toString() + " ist dran!");
+
         }
         else
         {
-            if(jLabel.getFigurColor() == null || jLabel.getFigurColor() != FeldLabel.prevLabel.getFigurColor())
+            if (jLabel.getFigurColor() == null || jLabel.getFigurColor() != FeldLabel.prevLabel.getFigurColor())
             {
                 jLabel.setIcon(FeldLabel.prevLabel.getIcon());
                 jLabel.setFigurColor(FeldLabel.prevLabel.getFigurColor());
+
+                FeldLabel.turn = jLabel.getFigurColor().getNegation();
 
                 FeldLabel.prevLabel.setBorder(null);
                 FeldLabel.prevLabel.setIcon(null);
