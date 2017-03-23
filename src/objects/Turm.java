@@ -9,8 +9,9 @@ import javax.swing.*;
  */
 public class Turm extends Figur
 {
-    public Turm(ImageIcon figurImage, FigurColor figurColor)
+    public Turm(FigurColor figurColor)
     {
-        super(figurImage, figurColor);
+        super(new ImageIcon("objects/images/" + figurColor.toString() + "_turm.png"), figurColor);
     }
+
 }

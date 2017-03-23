@@ -26,12 +26,12 @@ public class FeldLabel extends JLabel
      * @param icon Figures picture
      * @param figurColor Figure color (white or black)
      */
-    public FeldLabel(@NotNull Color color, Icon icon, Figur figur)
+    public FeldLabel(@NotNull Color color, Figur figur)
     {
         this.setBackground(color);
         this.setOpaque(true);
         this.setHorizontalAlignment(SwingConstants.CENTER);
-        this.setIcon(icon);
+        this.setIcon(figur.getFigurImage());
         this.addMouseListener(new MoveListener());
     }
 

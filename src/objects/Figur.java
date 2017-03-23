@@ -18,4 +18,8 @@ public class Figur
         this.figurColor = figurColor;
     }
 
+    public ImageIcon getFigurImage()
+    {
+        return figurImage;
+    }
 }
