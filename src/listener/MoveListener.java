@@ -21,37 +21,27 @@ public class MoveListener implements MouseListener
 
         if(FeldLabel.selectedLabel == null && jLabel.getFigur() != null)
         {
-            FeldLabel.selectedLabel = jLabel;
-            jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
-        }
-
-        /*if (FeldLabel.selectedLabel == null && jLabel.getIcon() != null)
-        {
-            if (jLabel.getFigur().getFigurColor().equals(FeldLabel.turn))
+            if(jLabel.getFigur().getFigurColor().equals(FeldLabel.turn))
             {
                 FeldLabel.selectedLabel = jLabel;
                 jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
             }
             else
                 JOptionPane.showMessageDialog(null, FeldLabel.turn.toString() + " ist dran!");
-
         }
-        else
+
+        if(FeldLabel.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != FeldLabel.selectedLabel.getFigur().getFigurColor()))
         {
-            if (jLabel.getFigur().getFigurColor() == null || jLabel.getFigur().getFigurColor() != FeldLabel.selectedLabel.getFigur().getFigurColor())
-            {
-                jLabel.setIcon(FeldLabel.selectedLabel.getIcon());
-                jLabel.setFigurColor(FeldLabel.selectedLabel.getFigurColor());
+            jLabel.setIcon(FeldLabel.selectedLabel.getFigur().getFigurImage());
+            jLabel.setFigur(FeldLabel.selectedLabel.getFigur());
 
-                FeldLabel.turn = jLabel.getFigurColor().getNegation();
+            FeldLabel.turn = jLabel.getFigur().getFigurColor().getNegation();
 
-                FeldLabel.selectedLabel.setBorder(null);
-                FeldLabel.selectedLabel.setIcon(null);
-                FeldLabel.selectedLabel.setFigurColor(null);
-                FeldLabel.selectedLabel = null;
-            }
-
-        }*/
+            FeldLabel.selectedLabel.setBorder(null);
+            FeldLabel.selectedLabel.setIcon(null);
+            FeldLabel.selectedLabel.setFigur(null);
+            FeldLabel.selectedLabel = null;
+        }
     }
 
     @Override

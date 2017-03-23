@@ -1,5 +1,6 @@
 package objects;
 
+import com.sun.istack.internal.NotNull;
 import gui.ChessColor;
 
 import javax.swing.*;
@@ -12,7 +13,7 @@ public class Figur
     private ImageIcon figurImage;
     private final ChessColor figurColor;
 
-    public Figur(ImageIcon figurImage, ChessColor figurColor)
+    public Figur(@NotNull ImageIcon figurImage, @NotNull ChessColor figurColor)
     {
         this.figurImage = figurImage;
         this.figurColor = figurColor;
