@@ -14,7 +14,7 @@ class BrettPanel extends JPanel
 
     BrettPanel()
     {
-        FigurColor figurColor;
+        ChessColor figurColor;
         this.setLayout(new GridLayout(8, 8));
         for (int y = 0; y < 8; y++)
         {
@@ -22,11 +22,11 @@ class BrettPanel extends JPanel
             {
                 if ((x % 2 == 0 || y % 2 == 1) && ((y % 2 == 0 || x % 2 == 1)))
                 {
-                    this.add(new FeldLabel(Color.black, imageForPosition(x, y)));
+                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.BLACK));
                 }
                 else
                 {
-                    this.add(new FeldLabel(Color.white, imageForPosition(x, y)));
+                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.WHITE));
                 }
             }
         }
@@ -37,19 +37,19 @@ class BrettPanel extends JPanel
         switch (y)
         {
             case 0:
-                return colorFiguren(x, FigurColor.BLACK);
+                return colorFiguren(x, ChessColor.BLACK);
             case 1:
-                return new Bauer(FigurColor.BLACK);
+                return new Bauer(ChessColor.BLACK);
             case 6:
-                return new Bauer(FigurColor.WHITE);
+                return new Bauer(ChessColor.WHITE);
             case 7:
-                return colorFiguren(x, FigurColor.WHITE);
+                return colorFiguren(x, ChessColor.WHITE);
             default:
                 return null;
         }
     }
 
-    private Figur colorFiguren(int x, FigurColor color)
+    private Figur colorFiguren(int x, ChessColor color)
     {
         switch (x)
         {

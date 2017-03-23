@@ -19,11 +19,17 @@ public class MoveListener implements MouseListener
         //JLabel which gets clicked
         FeldLabel jLabel = (FeldLabel) e.getSource();
 
-        if (FeldLabel.prevLabel == null && jLabel.getIcon() != null)
+        if(FeldLabel.selectedLabel == null && jLabel.getFigur() != null)
         {
-            if (jLabel.getFigurColor().equals(FeldLabel.turn))
+            FeldLabel.selectedLabel = jLabel;
+            jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
+        }
+
+        /*if (FeldLabel.selectedLabel == null && jLabel.getIcon() != null)
+        {
+            if (jLabel.getFigur().getFigurColor().equals(FeldLabel.turn))
             {
-                FeldLabel.prevLabel = jLabel;
+                FeldLabel.selectedLabel = jLabel;
                 jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
             }
             else
@@ -32,20 +38,20 @@ public class MoveListener implements MouseListener
         }
         else
         {
-            if (jLabel.getFigurColor() == null || jLabel.getFigurColor() != FeldLabel.prevLabel.getFigurColor())
+            if (jLabel.getFigur().getFigurColor() == null || jLabel.getFigur().getFigurColor() != FeldLabel.selectedLabel.getFigur().getFigurColor())
             {
-                jLabel.setIcon(FeldLabel.prevLabel.getIcon());
-                jLabel.setFigurColor(FeldLabel.prevLabel.getFigurColor());
+                jLabel.setIcon(FeldLabel.selectedLabel.getIcon());
+                jLabel.setFigurColor(FeldLabel.selectedLabel.getFigurColor());
 
                 FeldLabel.turn = jLabel.getFigurColor().getNegation();
 
-                FeldLabel.prevLabel.setBorder(null);
-                FeldLabel.prevLabel.setIcon(null);
-                FeldLabel.prevLabel.setFigurColor(null);
-                FeldLabel.prevLabel = null;
+                FeldLabel.selectedLabel.setBorder(null);
+                FeldLabel.selectedLabel.setIcon(null);
+                FeldLabel.selectedLabel.setFigurColor(null);
+                FeldLabel.selectedLabel = null;
             }
 
-        }
+        }*/
     }
 
     @Override

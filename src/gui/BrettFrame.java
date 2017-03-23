@@ -26,9 +26,9 @@ public class BrettFrame extends JFrame
         int i = new Random().nextInt(2);
 
         if(i == 0)
-            FeldLabel.turn = FigurColor.WHITE;
+            FeldLabel.turn = ChessColor.WHITE;
         else if (i == 1)
-            FeldLabel.turn = FigurColor.BLACK;
+            FeldLabel.turn = ChessColor.BLACK;
 
         JOptionPane.showMessageDialog(null, FeldLabel.turn.toString() + " fängt an!");
     }

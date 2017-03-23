@@ -1,16 +1,15 @@
 package objects;
 
-import gui.FigurColor;
-
-import javax.swing.*;
+import gui.ChessColor;
 
 /**
  * Created by Invalid on 23.03.2017.
  */
 public class Koenig extends Figur
 {
-    public Koenig(FigurColor figurColor)
+    public Koenig(ChessColor figurColor)
     {
-        super(new ImageIcon("objects/images/" + figurColor.toString() + "_koenig.png"), figurColor);
+        super(null, figurColor);
+        setFigurImage(getImage("images/" + figurColor.toString() + "_koenig.png"));
     }
 }

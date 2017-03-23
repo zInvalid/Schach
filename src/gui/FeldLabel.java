@@ -1,49 +1,49 @@
 package gui;
 
-import com.sun.istack.internal.NotNull;
 import listener.MoveListener;
 import objects.Figur;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class FeldLabel extends JLabel
 {
     /**
      * Cache label, which gets first clicked
      */
-    public static FeldLabel prevLabel = null;
+    public static FeldLabel selectedLabel = null;
 
     /**
      * Players turn
      */
-    public static FigurColor turn = null;
+    public static ChessColor turn = null;
 
     private Figur figur;
-    private FigurColor figurColor;
+    private ChessColor figurColor;
+
     /**
-     * @param color Chess field color (white or black)
-     * @param icon Figures picture
-     * @param figurColor Figure color (white or black)
+     * @param figur
+     * @param chessColor Chess field color (white or black)
      */
-    public FeldLabel(@NotNull Color color, Figur figur)
+    public FeldLabel(Figur figur, ChessColor chessColor)
     {
-        this.setBackground(color);
+        this.figur = figur;
+
+        this.setBackground(chessColor.toColor());
         this.setOpaque(true);
         this.setHorizontalAlignment(SwingConstants.CENTER);
-        this.setIcon(figur.getFigurImage());
         this.addMouseListener(new MoveListener());
+
+        if (figur != null)
+            this.setIcon(figur.getFigurImage());
     }
 
-    public FigurColor getFigurColor()
+    public Figur getFigur()
     {
-        return figurColor;
+        return figur;
     }
 
-    public void setFigurColor(FigurColor figurColor)
+    public void setFigur(Figur figur)
     {
-        this.figurColor = figurColor;
+        this.figur = figur;
     }
-
-
 }

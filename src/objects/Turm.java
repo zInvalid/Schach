@@ -1,17 +1,17 @@
 package objects;
 
-import gui.FigurColor;
-
-import javax.swing.*;
+import gui.ChessColor;
 
 /**
  * Created by e6_grumptmann on 23.03.2017.
  */
 public class Turm extends Figur
 {
-    public Turm(FigurColor figurColor)
+    public Turm(ChessColor figurColor)
     {
-        super(new ImageIcon("objects/images/" + figurColor.toString() + "_turm.png"), figurColor);
+        super(null, figurColor);
+        setFigurImage(getImage("images/" + figurColor.toString() + "_turm.png"));
     }
+
 
 }
