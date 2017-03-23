@@ -47,6 +47,18 @@ public class MoveListener implements MouseListener
                         FeldLabel.selectedLabel.setFigur(null);
                         FeldLabel.selectedLabel = null;
                     }
+                    break;
+                default:
+                    jLabel.setIcon(FeldLabel.selectedLabel.getFigur().getFigurImage());
+                    jLabel.setFigur(FeldLabel.selectedLabel.getFigur());
+
+                    FeldLabel.turn = jLabel.getFigur().getFigurColor().getNegation();
+
+                    FeldLabel.selectedLabel.setBorder(null);
+                    FeldLabel.selectedLabel.setIcon(null);
+                    FeldLabel.selectedLabel.setFigur(null);
+                    FeldLabel.selectedLabel = null;
+                    break;
             }
 
         }

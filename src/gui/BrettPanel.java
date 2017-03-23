@@ -4,31 +4,34 @@ import objects.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
 /**
  * Panel for {@link BrettFrame Frame]
  */
-class BrettPanel extends JPanel
+public class BrettPanel extends JPanel
 {
-
+    public static HashMap<int[][], FeldLabel> fields = new HashMap<>();
 
     BrettPanel()
     {
-        ChessColor figurColor;
         this.setLayout(new GridLayout(8, 8));
-        int[][] field = new int[8][8];
-        System.out.println(field[0].length);
         for (int y = 0; y < 8; y++)
         {
             for (int x = 0; x < 8; x++)
             {
+                FeldLabel feldLabel;
                 if ((x % 2 == 0 || y % 2 == 1) && ((y % 2 == 0 || x % 2 == 1)))
                 {
-                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.BLACK, x ,y));
+                    feldLabel = new FeldLabel(imageForPosition(x, y), ChessColor.BLACK, x, y);
+                    this.add(feldLabel);
+                    fields.put(new int[x][y], feldLabel);
                 }
                 else
                 {
-                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.WHITE, x ,y));
+                    feldLabel = new FeldLabel(imageForPosition(x, y), ChessColor.WHITE, x, y);
+                    this.add(feldLabel);
+                    fields.put(new int[x][y], feldLabel);
                 }
             }
         }
