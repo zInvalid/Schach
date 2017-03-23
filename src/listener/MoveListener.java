@@ -18,29 +18,37 @@ public class MoveListener implements MouseListener
     {
         //JLabel which gets clicked
         FeldLabel jLabel = (FeldLabel) e.getSource();
-
-        if(FeldLabel.selectedLabel == null && jLabel.getFigur() != null)
+        if (FeldLabel.selectedLabel == null && jLabel.getFigur() != null)
         {
-            if(jLabel.getFigur().getFigurColor().equals(FeldLabel.turn))
+            if (jLabel.getFigur().getFigurColor().equals(FeldLabel.turn))
             {
                 FeldLabel.selectedLabel = jLabel;
                 jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
+                System.out.println();
             }
             else
                 JOptionPane.showMessageDialog(null, FeldLabel.turn.toString() + " ist dran!");
         }
 
-        if(FeldLabel.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != FeldLabel.selectedLabel.getFigur().getFigurColor()))
+        if (FeldLabel.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != FeldLabel.selectedLabel.getFigur().getFigurColor()))
         {
-            jLabel.setIcon(FeldLabel.selectedLabel.getFigur().getFigurImage());
-            jLabel.setFigur(FeldLabel.selectedLabel.getFigur());
+            switch (FeldLabel.selectedLabel.getFigur().getType())
+            {
+                case TURM:
+                    if ((FeldLabel.selectedLabel.getXCoord() == jLabel.getXCoord() && FeldLabel.selectedLabel.getYCoord() != jLabel.getYCoord()) || (FeldLabel.selectedLabel.getXCoord() != jLabel.getXCoord() && FeldLabel.selectedLabel.getYCoord() == jLabel.getYCoord()))
+                    {
+                        jLabel.setIcon(FeldLabel.selectedLabel.getFigur().getFigurImage());
+                        jLabel.setFigur(FeldLabel.selectedLabel.getFigur());
 
-            FeldLabel.turn = jLabel.getFigur().getFigurColor().getNegation();
+                        FeldLabel.turn = jLabel.getFigur().getFigurColor().getNegation();
 
-            FeldLabel.selectedLabel.setBorder(null);
-            FeldLabel.selectedLabel.setIcon(null);
-            FeldLabel.selectedLabel.setFigur(null);
-            FeldLabel.selectedLabel = null;
+                        FeldLabel.selectedLabel.setBorder(null);
+                        FeldLabel.selectedLabel.setIcon(null);
+                        FeldLabel.selectedLabel.setFigur(null);
+                        FeldLabel.selectedLabel = null;
+                    }
+            }
+
         }
     }
 

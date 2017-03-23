@@ -12,11 +12,13 @@ public class Figur
 {
     private ImageIcon figurImage;
     private final ChessColor figurColor;
+    private final FigurType type;
 
-    public Figur(@NotNull ImageIcon figurImage, @NotNull ChessColor figurColor)
+    public Figur(@NotNull ImageIcon figurImage, @NotNull ChessColor figurColor, @NotNull FigurType type)
     {
         this.figurImage = figurImage;
         this.figurColor = figurColor;
+        this.type = type;
     }
 
     public ImageIcon getFigurImage()
@@ -40,5 +42,10 @@ public class Figur
             return new ImageIcon(getClass().getResource(pfad));
         else
             return null;
+    }
+
+    public FigurType getType()
+    {
+        return type;
     }
 }

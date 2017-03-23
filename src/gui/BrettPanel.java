@@ -16,17 +16,19 @@ class BrettPanel extends JPanel
     {
         ChessColor figurColor;
         this.setLayout(new GridLayout(8, 8));
+        int[][] field = new int[8][8];
+        System.out.println(field[0].length);
         for (int y = 0; y < 8; y++)
         {
             for (int x = 0; x < 8; x++)
             {
                 if ((x % 2 == 0 || y % 2 == 1) && ((y % 2 == 0 || x % 2 == 1)))
                 {
-                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.BLACK));
+                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.BLACK, x ,y));
                 }
                 else
                 {
-                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.WHITE));
+                    this.add(new FeldLabel(imageForPosition(x, y), ChessColor.WHITE, x ,y));
                 }
             }
         }
