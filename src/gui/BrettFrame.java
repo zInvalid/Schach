@@ -16,6 +16,13 @@ public class BrettFrame extends JFrame
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
+        randomStartingTurn();
+
+        this.setVisible(true);
+    }
+
+    private void randomStartingTurn()
+    {
         int i = new Random().nextInt(2);
 
         if(i == 0)
@@ -24,7 +31,5 @@ public class BrettFrame extends JFrame
             FeldLabel.turn = FigurColor.BLACK;
 
         JOptionPane.showMessageDialog(null, FeldLabel.turn.toString() + " fängt an!");
-
-        this.setVisible(true);
     }
 }

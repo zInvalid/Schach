@@ -1,10 +1,13 @@
 package gui;
 
+import objects.Figur;
+import objects.Turm;
+
 import javax.swing.*;
 import java.awt.*;
 
 /**
- * Panel fürs Schachbrett
+ * Panel for {@link BrettFrame Frame]
  */
 class BrettPanel extends JPanel
 {
@@ -42,25 +45,25 @@ class BrettPanel extends JPanel
         switch (y)
         {
             case 0:
-                return colorFiguren(x, "schwarz");
+                return colorFiguren(x, FigurColor.BLACK);
             case 1:
                 return createImageIcon("images/schwarz_bauer.png");
             case 6:
                 return createImageIcon("images/weiss_bauer.png");
             case 7:
-                return colorFiguren(x, "weiss");
+                return colorFiguren(x, FigurColor.WHITE);
             default:
                 return null;
         }
     }
 
-    private ImageIcon colorFiguren(int x, String color)
+    private Figur colorFiguren(int x, FigurColor color)
     {
         switch (x)
         {
             case 0:
             case 7:
-                return createImageIcon("images/" + color + "_turm.png");
+                return new Turm(new ImageIcon("images/" + color.toColor() + "_turm.png"), color);
             case 1:
             case 6:
                 return createImageIcon("images/" + color + "_pferd.png");
