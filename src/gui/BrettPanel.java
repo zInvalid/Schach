@@ -1,17 +1,16 @@
 package gui;
 
 import objects.*;
+import utils.Constants;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
 
 /**
  * Panel for {@link BrettFrame Frame]
  */
-public class BrettPanel extends JPanel
+class BrettPanel extends JPanel
 {
-    public static HashMap<int[][], FeldLabel> fields = new HashMap<>();
 
     BrettPanel()
     {
@@ -20,18 +19,18 @@ public class BrettPanel extends JPanel
         {
             for (int x = 0; x < 8; x++)
             {
-                FeldLabel feldLabel;
+                FieldLabel fieldLabel;
                 if ((x % 2 == 0 || y % 2 == 1) && ((y % 2 == 0 || x % 2 == 1)))
                 {
-                    feldLabel = new FeldLabel(imageForPosition(x, y), ChessColor.BLACK, x, y);
-                    this.add(feldLabel);
-                    fields.put(new int[x][y], feldLabel);
+                    fieldLabel = new FieldLabel(imageForPosition(x, y), ChessColor.BLACK, x, y);
+                    this.add(fieldLabel);
+                    Constants.fields.add(fieldLabel);
                 }
                 else
                 {
-                    feldLabel = new FeldLabel(imageForPosition(x, y), ChessColor.WHITE, x, y);
-                    this.add(feldLabel);
-                    fields.put(new int[x][y], feldLabel);
+                    fieldLabel = new FieldLabel(imageForPosition(x, y), ChessColor.WHITE, x, y);
+                    this.add(fieldLabel);
+                    Constants.fields.add(fieldLabel);
                 }
             }
         }

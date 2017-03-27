@@ -9,7 +9,7 @@ public class Bauer extends Figur
 {
     public Bauer(ChessColor figurColor)
     {
-        super(null, figurColor, FigurType.DAME);
+        super(null, figurColor, FigurType.BAUER);
         setFigurImage(getImage("images/" + figurColor.toString() + "_bauer.png"));
     }
 }

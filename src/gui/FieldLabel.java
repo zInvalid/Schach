@@ -5,17 +5,8 @@ import objects.Figur;
 
 import javax.swing.*;
 
-public class FeldLabel extends JLabel
+public class FieldLabel extends JLabel
 {
-    /**
-     * Cache label, which gets first clicked
-     */
-    public static FeldLabel selectedLabel = null;
-
-    /**
-     * Players turn
-     */
-    public static ChessColor turn = null;
 
     private Figur figur;
 
@@ -26,7 +17,7 @@ public class FeldLabel extends JLabel
      * @param figur
      * @param chessColor Chess field color (white or black)
      */
-    public FeldLabel(Figur figur, ChessColor chessColor, int x, int y)
+    FieldLabel(Figur figur, ChessColor chessColor, int x, int y)
     {
         this.figur = figur;
         this.x = x;

@@ -1,5 +1,7 @@
 package gui;
 
+import utils.Constants;
+
 import javax.swing.*;
 import java.util.Random;
 
@@ -26,10 +28,10 @@ public class BrettFrame extends JFrame
         int i = new Random().nextInt(2);
 
         if(i == 0)
-            FeldLabel.turn = ChessColor.WHITE;
+            Constants.turn = ChessColor.WHITE;
         else if (i == 1)
-            FeldLabel.turn = ChessColor.BLACK;
+            Constants.turn = ChessColor.BLACK;
 
-        JOptionPane.showMessageDialog(null, FeldLabel.turn.toString() + " fängt an!");
+        JOptionPane.showMessageDialog(null, Constants.turn.toString() + " fängt an!");
     }
 }

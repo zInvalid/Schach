@@ -1,15 +1,14 @@
 package listener;
 
-import gui.FeldLabel;
+import gui.FieldLabel;
+import utils.Constants;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-/**
- * Created by Invalid on 16.03.2017.
- */
 public class MoveListener implements MouseListener
 {
 
@@ -17,51 +16,54 @@ public class MoveListener implements MouseListener
     public void mouseClicked(MouseEvent e)
     {
         //JLabel which gets clicked
-        FeldLabel jLabel = (FeldLabel) e.getSource();
-        if (FeldLabel.selectedLabel == null && jLabel.getFigur() != null)
+        FieldLabel jLabel = (FieldLabel) e.getSource();
+        if (Constants.selectedLabel == null && jLabel.getFigur() != null)
         {
-            if (jLabel.getFigur().getFigurColor().equals(FeldLabel.turn))
+            if (jLabel.getFigur().getFigurColor().equals(Constants.turn))
             {
-                FeldLabel.selectedLabel = jLabel;
+                Constants.selectedLabel = jLabel;
                 jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
-                System.out.println();
+                switch (Constants.selectedLabel.getFigur().getType())
+                {
+                    case TURM:
+                        for (FieldLabel fieldLabel : Constants.fields)
+                        {
+                            if ((Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() != fieldLabel.getYCoord()) || (Constants.selectedLabel.getXCoord() != fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() == fieldLabel.getYCoord()))
+                            {
+                                Constants.allowedLabels.add(fieldLabel);
+                                fieldLabel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
+                            }
+                        }
+
+                }
+
             }
             else
-                JOptionPane.showMessageDialog(null, FeldLabel.turn.toString() + " ist dran!");
+                JOptionPane.showMessageDialog(null, Constants.turn.toString() + " ist dran!");
         }
-
-        if (FeldLabel.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != FeldLabel.selectedLabel.getFigur().getFigurColor()))
+        else if (Constants.selectedLabel != null && Constants.selectedLabel.equals(jLabel))
         {
-            switch (FeldLabel.selectedLabel.getFigur().getType())
-            {
-                case TURM:
-                    if ((FeldLabel.selectedLabel.getXCoord() == jLabel.getXCoord() && FeldLabel.selectedLabel.getYCoord() != jLabel.getYCoord()) || (FeldLabel.selectedLabel.getXCoord() != jLabel.getXCoord() && FeldLabel.selectedLabel.getYCoord() == jLabel.getYCoord()))
-                    {
-                        jLabel.setIcon(FeldLabel.selectedLabel.getFigur().getFigurImage());
-                        jLabel.setFigur(FeldLabel.selectedLabel.getFigur());
-
-                        FeldLabel.turn = jLabel.getFigur().getFigurColor().getNegation();
-
-                        FeldLabel.selectedLabel.setBorder(null);
-                        FeldLabel.selectedLabel.setIcon(null);
-                        FeldLabel.selectedLabel.setFigur(null);
-                        FeldLabel.selectedLabel = null;
-                    }
-                    break;
-                default:
-                    jLabel.setIcon(FeldLabel.selectedLabel.getFigur().getFigurImage());
-                    jLabel.setFigur(FeldLabel.selectedLabel.getFigur());
-
-                    FeldLabel.turn = jLabel.getFigur().getFigurColor().getNegation();
-
-                    FeldLabel.selectedLabel.setBorder(null);
-                    FeldLabel.selectedLabel.setIcon(null);
-                    FeldLabel.selectedLabel.setFigur(null);
-                    FeldLabel.selectedLabel = null;
-                    break;
-            }
-
+            Constants.selectedLabel.setBorder(null);
+            Constants.selectedLabel = null;
         }
+        else if (jLabel.getBorder() != null && ((LineBorder) jLabel.getBorder()).getLineColor().equals(Color.GREEN) && Constants.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != Constants.selectedLabel.getFigur().getFigurColor()))
+        {
+            for (FieldLabel fieldLabel : Constants.allowedLabels)
+            {
+                fieldLabel.setBorder(null);
+                Constants.allowedLabels.remove(fieldLabel);
+            }
+            jLabel.setIcon(Constants.selectedLabel.getFigur().getFigurImage());
+            jLabel.setFigur(Constants.selectedLabel.getFigur());
+
+            Constants.turn = jLabel.getFigur().getFigurColor().getNegation();
+
+            Constants.selectedLabel.setBorder(null);
+            Constants.selectedLabel.setIcon(null);
+            Constants.selectedLabel.setFigur(null);
+            Constants.selectedLabel = null;
+        }
+
     }
 
     @Override

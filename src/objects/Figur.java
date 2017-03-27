@@ -5,16 +5,13 @@ import gui.ChessColor;
 
 import javax.swing.*;
 
-/**
- * Created by e6_grumptmann on 23.03.2017.
- */
 public class Figur
 {
     private ImageIcon figurImage;
     private final ChessColor figurColor;
     private final FigurType type;
 
-    public Figur(@NotNull ImageIcon figurImage, @NotNull ChessColor figurColor, @NotNull FigurType type)
+    Figur(@NotNull ImageIcon figurImage, @NotNull ChessColor figurColor, @NotNull FigurType type)
     {
         this.figurImage = figurImage;
         this.figurColor = figurColor;
@@ -26,7 +23,8 @@ public class Figur
         return figurImage;
     }
 
-    public void setFigurImage(ImageIcon figurImage)
+    @Deprecated
+    void setFigurImage(ImageIcon figurImage)
     {
         this.figurImage = figurImage;
     }
@@ -48,4 +46,5 @@ public class Figur
     {
         return type;
     }
+
 }
