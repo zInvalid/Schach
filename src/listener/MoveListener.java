@@ -46,13 +46,19 @@ public class MoveListener implements MouseListener
             Constants.selectedLabel.setBorder(null);
             Constants.selectedLabel = null;
         }
-        else if (jLabel.getBorder() != null && ((LineBorder) jLabel.getBorder()).getLineColor().equals(Color.GREEN) && Constants.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != Constants.selectedLabel.getFigur().getFigurColor()))
+        else if (Constants.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != Constants.selectedLabel.getFigur().getFigurColor()))
         {
-            for (FieldLabel fieldLabel : Constants.allowedLabels)
+            //TODO - Add this "if statement to" the other, when other mechanics are finished!
+            if(jLabel.getBorder() != null && ((LineBorder) jLabel.getBorder()).getLineColor().equals(Color.GREEN))
             {
-                fieldLabel.setBorder(null);
-                Constants.allowedLabels.remove(fieldLabel);
+                for (FieldLabel fieldLabel : Constants.allowedLabels)
+                {
+                    fieldLabel.setBorder(null);
+                    Constants.allowedLabels.remove(fieldLabel);
+                }
             }
+
+
             jLabel.setIcon(Constants.selectedLabel.getFigur().getFigurImage());
             jLabel.setFigur(Constants.selectedLabel.getFigur());
 
