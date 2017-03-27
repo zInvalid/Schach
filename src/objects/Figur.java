@@ -2,10 +2,12 @@ package objects;
 
 import com.sun.istack.internal.NotNull;
 import gui.ChessColor;
+import gui.FieldLabel;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
-public class Figur
+public abstract class Figur
 {
     private ImageIcon figurImage;
     private final ChessColor figurColor;
@@ -46,5 +48,7 @@ public class Figur
     {
         return type;
     }
+
+    public abstract ArrayList<FieldLabel> moveAblesFields();
 
 }

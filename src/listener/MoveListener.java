@@ -23,20 +23,11 @@ public class MoveListener implements MouseListener
             {
                 Constants.selectedLabel = jLabel;
                 jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
-                switch (Constants.selectedLabel.getFigur().getType())
+                //TODO - Nullpointer, coz no mechanics
+                for(FieldLabel fieldLabel : jLabel.getFigur().moveAblesFields())
                 {
-                    case TURM:
-                        for (FieldLabel fieldLabel : Constants.fields)
-                        {
-                            if ((Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() != fieldLabel.getYCoord()) || (Constants.selectedLabel.getXCoord() != fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() == fieldLabel.getYCoord()))
-                            {
-                                Constants.allowedLabels.add(fieldLabel);
-                                fieldLabel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
-                            }
-                        }
-
+                    fieldLabel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
                 }
-
             }
             else
                 JOptionPane.showMessageDialog(null, Constants.turn.toString() + " ist dran!");
@@ -51,10 +42,9 @@ public class MoveListener implements MouseListener
             //TODO - Add this "if statement to" the other, when other mechanics are finished!
             if(jLabel.getBorder() != null && ((LineBorder) jLabel.getBorder()).getLineColor().equals(Color.GREEN))
             {
-                for (FieldLabel fieldLabel : Constants.allowedLabels)
+                for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
                 {
                     fieldLabel.setBorder(null);
-                    Constants.allowedLabels.remove(fieldLabel);
                 }
             }
 

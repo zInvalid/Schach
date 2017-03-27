@@ -1,6 +1,9 @@
 package objects;
 
 import gui.ChessColor;
+import gui.FieldLabel;
+
+import java.util.ArrayList;
 
 public class Springer extends Figur
 {
@@ -8,5 +11,11 @@ public class Springer extends Figur
     {
         super(null, figurColor, FigurType.SPRINGER);
         setFigurImage(getImage("images/" + figurColor.toString() + "_pferd.png"));
+    }
+
+    @Override
+    public ArrayList<FieldLabel> moveAblesFields()
+    {
+        return null;
     }
 }

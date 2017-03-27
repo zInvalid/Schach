@@ -18,9 +18,8 @@ public class BrettFrame extends JFrame
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
 
-        randomStartingTurn();
-
         this.setVisible(true);
+        randomStartingTurn();
     }
 
     private void randomStartingTurn()
