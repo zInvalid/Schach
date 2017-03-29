@@ -2,6 +2,7 @@ package objects;
 
 import gui.ChessColor;
 import gui.FieldLabel;
+import utils.Constants;
 
 import java.util.ArrayList;
 

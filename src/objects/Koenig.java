@@ -28,8 +28,7 @@ public class Koenig extends Figur
                     || (((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord()) && ((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord()))
                     || (((Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()) && ((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()))
                     || (((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord()) && ((Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()))
-                    || (((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()) && ((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord()))
-                    )
+                    || (((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()) && ((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord())))
             {
                 moveFields.add(fieldLabel);
             }

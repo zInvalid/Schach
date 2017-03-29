@@ -1,6 +1,8 @@
 package listener;
 
 import gui.FieldLabel;
+import objects.Bauer;
+import objects.FigurType;
 import utils.Constants;
 
 import javax.swing.*;
@@ -56,7 +58,11 @@ public class MoveListener implements MouseListener
                     fieldLabel.setBorder(null);
                 }
             }
-
+            if(Constants.selectedLabel.getFigur().getType().equals(FigurType.BAUER))
+            {
+                Bauer bauer = (Bauer) Constants.selectedLabel.getFigur();
+                bauer.setMoved(true);
+            }
 
             jLabel.setIcon(Constants.selectedLabel.getFigur().getFigurImage());
             jLabel.setFigur(Constants.selectedLabel.getFigur());
