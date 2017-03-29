@@ -8,8 +8,6 @@ import java.util.ArrayList;
 
 public class Turm extends Figur
 {
-
-
     public Turm(ChessColor figurColor)
     {
         super(null, figurColor, FigurType.TURM);

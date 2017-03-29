@@ -18,9 +18,9 @@ public enum ChessColor
     }
 
     /**
-     * Similar to {@link #toString() method}
+     * Similar to {@link #toString() toString}
      *
-     * @return Color
+     * @return {@link Color color}
      */
     public Color toColor() {return this == BLACK ? Color.BLACK : Color.WHITE;}
 

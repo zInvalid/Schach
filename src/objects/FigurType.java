@@ -7,5 +7,5 @@ public enum FigurType
     KOENIG,
     LAEUFER,
     SPRINGER,
-    TURM;
+    TURM
 }

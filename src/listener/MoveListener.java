@@ -34,6 +34,15 @@ public class MoveListener implements MouseListener
         }
         else if (Constants.selectedLabel != null && Constants.selectedLabel.equals(jLabel))
         {
+            //TODO - No if statement
+            if(Constants.selectedLabel.getFigur().moveAblesFields() != null)
+            {
+                for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
+                {
+                    fieldLabel.setBorder(null);
+                }
+            }
+
             Constants.selectedLabel.setBorder(null);
             Constants.selectedLabel = null;
         }

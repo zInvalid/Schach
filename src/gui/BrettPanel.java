@@ -6,9 +6,6 @@ import utils.Constants;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Panel for {@link BrettFrame Frame]
- */
 class BrettPanel extends JPanel
 {
 

@@ -5,11 +5,10 @@ import gui.FieldLabel;
 
 import java.util.ArrayList;
 
-/**
- * Created by Invalid on 23.03.2017.
- */
 public class Bauer extends Figur
 {
+    private boolean moved;
+
     public Bauer(ChessColor figurColor)
     {
         super(null, figurColor, FigurType.BAUER);

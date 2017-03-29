@@ -25,7 +25,6 @@ public abstract class Figur
         return figurImage;
     }
 
-    @Deprecated
     void setFigurImage(ImageIcon figurImage)
     {
         this.figurImage = figurImage;
@@ -36,7 +35,7 @@ public abstract class Figur
         return figurColor;
     }
 
-    public ImageIcon getImage(String pfad)
+    ImageIcon getImage(String pfad)
     {
         if (getClass().getResource(pfad) != null)
             return new ImageIcon(getClass().getResource(pfad));
