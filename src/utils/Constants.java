@@ -15,6 +15,9 @@ public class Constants
      */
     public static final ArrayList<FieldLabel> fields = new ArrayList<>();
 
+    public static final FieldLabel[][] fieldsArr = new FieldLabel[8][8];
+
+
     /**
      * Cache label, which gets first clicked
      */

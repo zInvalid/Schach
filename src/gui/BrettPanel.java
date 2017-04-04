@@ -22,12 +22,14 @@ class BrettPanel extends JPanel
                     fieldLabel = new FieldLabel(imageForPosition(x, y), ChessColor.BLACK, x, y);
                     this.add(fieldLabel);
                     Constants.fields.add(fieldLabel);
+                    Constants.fieldsArr[x][y] = fieldLabel;
                 }
                 else
                 {
                     fieldLabel = new FieldLabel(imageForPosition(x, y), ChessColor.WHITE, x, y);
                     this.add(fieldLabel);
                     Constants.fields.add(fieldLabel);
+                    Constants.fieldsArr[x][y] = fieldLabel;
                 }
             }
 

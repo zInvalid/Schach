@@ -18,6 +18,9 @@ public class Koenig extends Figur
     public ArrayList<FieldLabel> moveAblesFields()
     {
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
+        int x = Constants.selectedLabel.getXCoord();
+        int y = Constants.selectedLabel.getYCoord();
+
         for (FieldLabel fieldLabel : Constants.fields)
         {
             if (((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord() || (Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()) && (Constants.selectedLabel.getYCoord()) == fieldLabel.getYCoord()

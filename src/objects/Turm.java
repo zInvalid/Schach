@@ -18,7 +18,45 @@ public class Turm extends Figur
     public ArrayList<FieldLabel> moveAblesFields()
     {
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
-        for (FieldLabel fieldLabel : Constants.fields)
+        int x, y;
+        x = Constants.selectedLabel.getXCoord();
+        y = Constants.selectedLabel.getYCoord() - 1;
+
+        while (y >= 0)
+        {
+            moveFields.add(Constants.fieldsArr[x][y]);
+            y--;
+        }
+
+        y = Constants.selectedLabel.getYCoord() + 1;
+
+        while (y <= 7)
+        {
+            moveFields.add(Constants.fieldsArr[x][y]);
+            y++;
+        }
+
+        x = Constants.selectedLabel.getXCoord() - 1;
+        y = Constants.selectedLabel.getYCoord();
+
+        while (x >= 0)
+        {
+            moveFields.add(Constants.fieldsArr[x][y]);
+            x--;
+        }
+
+
+        x = Constants.selectedLabel.getXCoord() + 1;
+        y = Constants.selectedLabel.getYCoord();
+
+        while (x <= 7)
+        {
+            moveFields.add(Constants.fieldsArr[x][y]);
+            x++;
+        }
+
+
+        /*for (FieldLabel fieldLabel : Constants.fields)
         {
             if ((Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() != fieldLabel.getYCoord())
                     || (Constants.selectedLabel.getXCoord() != fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() == fieldLabel.getYCoord()))
@@ -26,7 +64,7 @@ public class Turm extends Figur
                 moveFields.add(fieldLabel);
             }
 
-        }
+        }*/
         return moveFields;
 
     }

@@ -19,56 +19,52 @@ public class Laeufer extends Figur
     {
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
         int x, y;
-        for (FieldLabel fieldLabel : Constants.fields)
+        x = Constants.selectedLabel.getXCoord() - 1;
+        y = Constants.selectedLabel.getYCoord() - 1;
+
+        while (x >= 0 && y >= 0)
         {
-            x = Constants.selectedLabel.getXCoord() - 1;
-            y = Constants.selectedLabel.getYCoord() - 1;
-
-            while (x >= 0 && y >= 0)
-            {
-                if(fieldLabel.getXCoord() == x && fieldLabel.getYCoord() == y)
-                    moveFields.add(fieldLabel);
-                x--;
-                y--;
-            }
-
-
-            x = Constants.selectedLabel.getXCoord() + 1;
-            y = Constants.selectedLabel.getYCoord() + 1;
-
-            while (x <= 8 && y <= 8)
-            {
-                if(fieldLabel.getXCoord() == x && fieldLabel.getYCoord() == y)
-                    moveFields.add(fieldLabel);
-                x++;
-                y++;
-            }
-
-
-            x = Constants.selectedLabel.getXCoord() - 1;
-            y = Constants.selectedLabel.getYCoord() + 1;
-
-            while (x >= 0 && y <= 8)
-            {
-                if(fieldLabel.getXCoord() == x && fieldLabel.getYCoord() == y)
-                    moveFields.add(fieldLabel);
-                x--;
-                y++;
-            }
-
-
-            x = Constants.selectedLabel.getXCoord() + 1;
-            y = Constants.selectedLabel.getYCoord() - 1;
-
-            while (x <= 8 && y >= 0)
-            {
-                if(fieldLabel.getXCoord() == x && fieldLabel.getYCoord() == y)
-                    moveFields.add(fieldLabel);
-                x++;
-                y--;
-            }
-
+            moveFields.add(Constants.fieldsArr[x][y]);
+            x--;
+            y--;
         }
+
+
+        x = Constants.selectedLabel.getXCoord() + 1;
+        y = Constants.selectedLabel.getYCoord() + 1;
+
+        while (x <= 7 && y <= 7)
+        {
+            moveFields.add(Constants.fieldsArr[x][y]);
+
+            x++;
+            y++;
+        }
+
+
+        x = Constants.selectedLabel.getXCoord() - 1;
+        y = Constants.selectedLabel.getYCoord() + 1;
+
+        while (x >= 0 && y <= 7)
+        {
+            moveFields.add(Constants.fieldsArr[x][y]);
+
+            x--;
+            y++;
+        }
+
+
+        x = Constants.selectedLabel.getXCoord() + 1;
+        y = Constants.selectedLabel.getYCoord() - 1;
+
+        while (x <= 7 && y >= 0)
+        {
+            moveFields.add(Constants.fieldsArr[x][y]);
+
+            x++;
+            y--;
+        }
+
         return moveFields;
     }
 }
