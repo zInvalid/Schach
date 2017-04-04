@@ -30,6 +30,7 @@ class BrettPanel extends JPanel
                     Constants.fields.add(fieldLabel);
                 }
             }
+
         }
     }
 

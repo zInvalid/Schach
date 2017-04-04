@@ -1,6 +1,5 @@
 package gui;
 
-import com.sun.istack.internal.Nullable;
 import listener.MoveListener;
 import objects.Figur;
 
@@ -19,7 +18,7 @@ public class FieldLabel extends JLabel
      * @param x          x-coordinate
      * @param y          y-coordinate
      */
-    FieldLabel(@Nullable Figur figur, ChessColor chessColor, int x, int y)
+    FieldLabel(Figur figur, ChessColor chessColor, int x, int y)
     {
         this.figur = figur;
         this.x = x;

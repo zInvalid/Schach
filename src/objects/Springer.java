@@ -17,6 +17,15 @@ public class Springer extends Figur
     @Override
     public ArrayList<FieldLabel> moveAblesFields()
     {
-        return null;
+        ArrayList<FieldLabel> moveFields = new ArrayList<>();
+        for (FieldLabel fieldLabel : Constants.fields)
+        {
+            if ((((Constants.selectedLabel.getXCoord() - 2) == fieldLabel.getXCoord() || (Constants.selectedLabel.getXCoord() + 2) == fieldLabel.getXCoord()) && ((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord() || (Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()))
+                    || (((Constants.selectedLabel.getYCoord() - 2) == fieldLabel.getYCoord() || (Constants.selectedLabel.getYCoord() + 2) == fieldLabel.getYCoord()) && ((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord() || (Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord())))
+            {
+                moveFields.add(fieldLabel);
+            }
+        }
+        return moveFields;
     }
 }

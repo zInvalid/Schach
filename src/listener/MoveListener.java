@@ -25,7 +25,6 @@ public class MoveListener implements MouseListener
             {
                 Constants.selectedLabel = jLabel;
                 jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
-                //TODO - Nullpointer, coz no mechanics
                 for(FieldLabel fieldLabel : jLabel.getFigur().moveAblesFields())
                 {
                     fieldLabel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
@@ -36,27 +35,18 @@ public class MoveListener implements MouseListener
         }
         else if (Constants.selectedLabel != null && Constants.selectedLabel.equals(jLabel))
         {
-            //TODO - No if statement
-            if(Constants.selectedLabel.getFigur().moveAblesFields() != null)
+            for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
             {
-                for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
-                {
-                    fieldLabel.setBorder(null);
-                }
+                fieldLabel.setBorder(null);
             }
-
             Constants.selectedLabel.setBorder(null);
             Constants.selectedLabel = null;
         }
-        else if (Constants.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != Constants.selectedLabel.getFigur().getFigurColor()))
+        else if (Constants.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != Constants.selectedLabel.getFigur().getFigurColor()) && jLabel.getBorder() != null && ((LineBorder) jLabel.getBorder()).getLineColor().equals(Color.GREEN))
         {
-            //TODO - Add this "if statement to" the other, when other mechanics are finished!
-            if(jLabel.getBorder() != null && ((LineBorder) jLabel.getBorder()).getLineColor().equals(Color.GREEN))
+            for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
             {
-                for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
-                {
-                    fieldLabel.setBorder(null);
-                }
+                fieldLabel.setBorder(null);
             }
             if(Constants.selectedLabel.getFigur().getType().equals(FigurType.BAUER))
             {

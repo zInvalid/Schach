@@ -20,10 +20,8 @@ public class Koenig extends Figur
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
         for (FieldLabel fieldLabel : Constants.fields)
         {
-            if ((((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord()) && (Constants.selectedLabel.getYCoord() == fieldLabel.getYCoord()))
-                    || (((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord()) && (Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord()))
-                    || (((Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()) && (Constants.selectedLabel.getYCoord() == fieldLabel.getYCoord()))
-                    || (((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()) && (Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord()))
+            if (((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord() || (Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()) && (Constants.selectedLabel.getYCoord()) == fieldLabel.getYCoord()
+                    || ((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord() || (Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()) && (Constants.selectedLabel.getXCoord()) == fieldLabel.getXCoord()
 
                     || (((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord()) && ((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord()))
                     || (((Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()) && ((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()))

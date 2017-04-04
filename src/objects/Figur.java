@@ -1,6 +1,5 @@
 package objects;
 
-import com.sun.istack.internal.NotNull;
 import gui.ChessColor;
 import gui.FieldLabel;
 
@@ -13,7 +12,7 @@ public abstract class Figur
     private final ChessColor figurColor;
     private final FigurType type;
 
-    Figur(@NotNull ImageIcon figurImage, @NotNull ChessColor figurColor, @NotNull FigurType type)
+    Figur(ImageIcon figurImage, ChessColor figurColor, FigurType type)
     {
         this.figurImage = figurImage;
         this.figurColor = figurColor;
