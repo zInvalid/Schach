@@ -18,13 +18,17 @@ public class Laeufer extends Figur
     public ArrayList<FieldLabel> moveAblesFields()
     {
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
-        int x, y;
-        x = Constants.selectedLabel.getXCoord() - 1;
-        y = Constants.selectedLabel.getYCoord() - 1;
+        int x = Constants.selectedLabel.getXCoord() - 1;
+        int y = Constants.selectedLabel.getYCoord() - 1;
 
         while (x >= 0 && y >= 0)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = Constants.fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(Constants.selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
             x--;
             y--;
         }
@@ -35,7 +39,12 @@ public class Laeufer extends Figur
 
         while (x <= 7 && y <= 7)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = Constants.fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(Constants.selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
 
             x++;
             y++;
@@ -47,7 +56,12 @@ public class Laeufer extends Figur
 
         while (x >= 0 && y <= 7)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = Constants.fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(Constants.selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
 
             x--;
             y++;
@@ -59,7 +73,12 @@ public class Laeufer extends Figur
 
         while (x <= 7 && y >= 0)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = Constants.fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(Constants.selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
 
             x++;
             y--;

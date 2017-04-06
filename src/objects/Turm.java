@@ -2,9 +2,10 @@ package objects;
 
 import gui.ChessColor;
 import gui.FieldLabel;
-import utils.Constants;
 
 import java.util.ArrayList;
+
+import static utils.Constants.*;
 
 public class Turm extends Figur
 {
@@ -19,39 +20,63 @@ public class Turm extends Figur
     {
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
         int x, y;
-        x = Constants.selectedLabel.getXCoord();
-        y = Constants.selectedLabel.getYCoord() - 1;
+        x = selectedLabel.getXCoord();
+        y = selectedLabel.getYCoord() - 1;
 
         while (y >= 0)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
+
             y--;
         }
 
-        y = Constants.selectedLabel.getYCoord() + 1;
+        y = selectedLabel.getYCoord() + 1;
 
         while (y <= 7)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
+
             y++;
         }
 
-        x = Constants.selectedLabel.getXCoord() - 1;
-        y = Constants.selectedLabel.getYCoord();
+        x = selectedLabel.getXCoord() - 1;
+        y = selectedLabel.getYCoord();
 
         while (x >= 0)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
+
             x--;
         }
 
 
-        x = Constants.selectedLabel.getXCoord() + 1;
-        y = Constants.selectedLabel.getYCoord();
+        x = selectedLabel.getXCoord() + 1;
+        y = selectedLabel.getYCoord();
 
         while (x <= 7)
         {
-            moveFields.add(Constants.fieldsArr[x][y]);
+            FieldLabel e = fieldsArr[x][y];
+            if(e.getFigur() == null || !e.getFigur().getFigurColor().equals(selectedLabel.getFigur().getFigurColor()))
+                moveFields.add(e);
+
+            if (e.getFigur() != null)
+                break;
+
             x++;
         }
 
