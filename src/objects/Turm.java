@@ -19,9 +19,8 @@ public class Turm extends Figur
     public ArrayList<FieldLabel> moveAblesFields()
     {
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
-        int x, y;
-        x = selectedLabel.getXCoord();
-        y = selectedLabel.getYCoord() - 1;
+        int x = selectedLabel.getXCoord();
+        int y = selectedLabel.getYCoord() - 1;
 
         while (y >= 0)
         {
@@ -93,4 +92,5 @@ public class Turm extends Figur
         return moveFields;
 
     }
+
 }
