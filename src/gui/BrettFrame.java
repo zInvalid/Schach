@@ -32,5 +32,12 @@ public class BrettFrame extends JFrame
             Constants.turn = ChessColor.BLACK;
 
         JOptionPane.showMessageDialog(null, Constants.turn.toString() + " fängt an!");
+        setTitle(Constants.turn.toString());
+    }
+
+    @Override
+    public void setTitle(String title)
+    {
+        super.setTitle("Schach by R0bian - " + title + " ist dran!");
     }
 }

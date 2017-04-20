@@ -59,6 +59,10 @@ public class MoveListener implements MouseListener
 
             Constants.turn = jLabel.getFigur().getFigurColor().getNegation();
 
+            Component component = (Component) e.getSource();
+            JFrame frame = (JFrame) SwingUtilities.getRoot(component);
+            frame.setTitle(Constants.turn.toString());
+
             Constants.selectedLabel.setBorder(null);
             Constants.selectedLabel.setIcon(null);
             Constants.selectedLabel.setFigur(null);
