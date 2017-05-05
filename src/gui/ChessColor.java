@@ -4,8 +4,17 @@ import java.awt.*;
 
 public enum ChessColor
 {
-    BLACK,
-    WHITE;
+    BLACK(Color.BLACK, "Schwarz"),
+    WHITE(Color.WHITE, "Weiss");
+
+    private Color color;
+    private String name;
+
+    ChessColor(Color color, String name)
+    {
+        this.color = color;
+        this.name = name;
+    }
 
     public ChessColor getNegation()
     {
@@ -22,11 +31,11 @@ public enum ChessColor
      *
      * @return {@link Color color}
      */
-    public Color toColor() {return this == BLACK ? Color.BLACK : Color.WHITE;}
+    public Color toColor() {return color;}
 
     @Override
     public String toString()
     {
-        return this == BLACK ? "schwarz" : "weiss";
+        return name;
     }
 }
