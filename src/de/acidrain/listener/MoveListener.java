@@ -1,9 +1,9 @@
-package listener;
+package de.acidrain.listener;
 
-import gui.FieldLabel;
-import objects.Bauer;
-import objects.FigurType;
-import utils.Constants;
+import de.acidrain.gui.FieldLabel;
+import de.acidrain.objects.Bauer;
+import de.acidrain.objects.FigurType;
+import de.acidrain.utils.Constants;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;

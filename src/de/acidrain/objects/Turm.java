@@ -1,18 +1,20 @@
-package objects;
+package de.acidrain.objects;
 
-import gui.ChessColor;
-import gui.FieldLabel;
+import de.acidrain.RessourceLoader;
+import de.acidrain.gui.ChessColor;
+import de.acidrain.gui.FieldLabel;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
-import static utils.Constants.*;
+import static de.acidrain.utils.Constants.*;
 
 public class Turm extends Figur
 {
     public Turm(ChessColor figurColor)
     {
         super(null, figurColor, FigurType.TURM);
-        setFigurImage(getImage("images/" + figurColor.toString() + "_turm.png"));
+        setFigurImage(new ImageIcon(RessourceLoader.getImage(figurColor.toString().toLowerCase()  + "_turm.png")));
     }
 
     @Override

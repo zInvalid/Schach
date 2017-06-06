@@ -1,12 +1,14 @@
-package objects;
+package de.acidrain.objects;
 
-import gui.ChessColor;
-import gui.FieldLabel;
-import utils.Constants;
+import de.acidrain.RessourceLoader;
+import de.acidrain.gui.ChessColor;
+import de.acidrain.gui.FieldLabel;
+import de.acidrain.utils.Constants;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
-import static utils.Constants.selectedLabel;
+import static de.acidrain.utils.Constants.selectedLabel;
 
 public class Bauer extends Figur
 {
@@ -15,7 +17,7 @@ public class Bauer extends Figur
     public Bauer(ChessColor figurColor)
     {
         super(null, figurColor, FigurType.BAUER);
-        setFigurImage(getImage("images/" + figurColor.toString() + "_bauer.png"));
+        setFigurImage(new ImageIcon(RessourceLoader.getImage(figurColor.toString().toLowerCase() + "_bauer.png")));
     }
 
     @Override

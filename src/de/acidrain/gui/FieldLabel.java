@@ -1,7 +1,7 @@
-package gui;
+package de.acidrain.gui;
 
-import listener.MoveListener;
-import objects.Figur;
+import de.acidrain.listener.MoveListener;
+import de.acidrain.objects.Figur;
 
 import javax.swing.*;
 

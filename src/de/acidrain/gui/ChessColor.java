@@ -1,4 +1,4 @@
-package gui;
+package de.acidrain.gui;
 
 import java.awt.*;
 

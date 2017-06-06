@@ -1,7 +1,7 @@
-package utils;
+package de.acidrain.utils;
 
-import gui.ChessColor;
-import gui.FieldLabel;
+import de.acidrain.gui.ChessColor;
+import de.acidrain.gui.FieldLabel;
 
 import java.util.ArrayList;
 

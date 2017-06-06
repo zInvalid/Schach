@@ -1,7 +1,7 @@
-package gui;
+package de.acidrain.gui;
 
-import objects.*;
-import utils.Constants;
+import de.acidrain.objects.*;
+import de.acidrain.utils.Constants;
 
 import javax.swing.*;
 import java.awt.*;

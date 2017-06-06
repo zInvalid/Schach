@@ -1,9 +1,11 @@
-package objects;
+package de.acidrain.objects;
 
-import gui.ChessColor;
-import gui.FieldLabel;
-import utils.Constants;
+import de.acidrain.RessourceLoader;
+import de.acidrain.gui.ChessColor;
+import de.acidrain.gui.FieldLabel;
+import de.acidrain.utils.Constants;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Koenig extends Figur
@@ -11,7 +13,7 @@ public class Koenig extends Figur
     public Koenig(ChessColor figurColor)
     {
         super(null, figurColor, FigurType.KOENIG);
-        setFigurImage(getImage("images/" + figurColor.toString() + "_koenig.png"));
+        setFigurImage(new ImageIcon(RessourceLoader.getImage( figurColor.toString().toLowerCase()  + "_koenig.png")));
     }
 
     @Override

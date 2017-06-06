@@ -1,7 +1,7 @@
-package objects;
+package de.acidrain.objects;
 
-import gui.ChessColor;
-import gui.FieldLabel;
+import de.acidrain.gui.ChessColor;
+import de.acidrain.gui.FieldLabel;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -32,14 +32,6 @@ public abstract class Figur
     public ChessColor getFigurColor()
     {
         return figurColor;
-    }
-
-    ImageIcon getImage(String pfad)
-    {
-        if (getClass().getResource(pfad) != null)
-            return new ImageIcon(getClass().getResource(pfad));
-        else
-            return null;
     }
 
     public FigurType getType()

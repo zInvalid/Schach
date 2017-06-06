@@ -1,6 +1,6 @@
-package gui;
+package de.acidrain.gui;
 
-import utils.Constants;
+import de.acidrain.utils.Constants;
 
 import javax.swing.*;
 import java.util.Random;

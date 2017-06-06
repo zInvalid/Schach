@@ -1,9 +1,12 @@
-package objects;
+package de.acidrain.objects;
 
-import gui.ChessColor;
-import gui.FieldLabel;
-import utils.Constants;
+import com.sun.org.apache.regexp.internal.RE;
+import de.acidrain.RessourceLoader;
+import de.acidrain.gui.ChessColor;
+import de.acidrain.gui.FieldLabel;
+import de.acidrain.utils.Constants;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Laeufer extends Figur
@@ -11,7 +14,7 @@ public class Laeufer extends Figur
     public Laeufer(ChessColor figurColor)
     {
         super(null, figurColor, FigurType.LAEUFER);
-        setFigurImage(getImage("images/" + figurColor.toString() + "_laeufer.png"));
+        setFigurImage(new ImageIcon(RessourceLoader.getImage( figurColor.toString().toLowerCase()  + "_laeufer.png")));
     }
 
     @Override

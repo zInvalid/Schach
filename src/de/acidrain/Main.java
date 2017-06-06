@@ -1,4 +1,6 @@
-import gui.BrettFrame;
+package de.acidrain;
+
+import de.acidrain.gui.BrettFrame;
 
 public class Main
 {
