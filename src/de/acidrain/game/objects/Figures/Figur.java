@@ -1,10 +1,12 @@
-package de.acidrain.objects;
+package de.acidrain.game.objects.Figures;
 
 import de.acidrain.gui.ChessColor;
 import de.acidrain.gui.FieldLabel;
 
 import javax.swing.*;
 import java.util.ArrayList;
+
+import static de.acidrain.utils.Constants.selectedLabel;
 
 public abstract class Figur
 {
@@ -41,4 +43,9 @@ public abstract class Figur
 
     public abstract ArrayList<FieldLabel> moveAblesFields();
 
+    public void add(ArrayList<FieldLabel> arrayList, FieldLabel label)
+    {
+        if (label.getFigur() == null || !label.getFigur().getFigurColor().equals(selectedLabel.getFigur().getFigurColor()))
+            arrayList.add(label);
+    }
 }

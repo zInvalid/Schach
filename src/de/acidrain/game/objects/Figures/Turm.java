@@ -1,4 +1,4 @@
-package de.acidrain.objects;
+package de.acidrain.game.objects.Figures;
 
 import de.acidrain.RessourceLoader;
 import de.acidrain.gui.ChessColor;
@@ -81,16 +81,6 @@ public class Turm extends Figur
             x++;
         }
 
-
-        /*for (FieldLabel fieldLabel : Constants.fields)
-        {
-            if ((Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() != fieldLabel.getYCoord())
-                    || (Constants.selectedLabel.getXCoord() != fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() == fieldLabel.getYCoord()))
-            {
-                moveFields.add(fieldLabel);
-            }
-
-        }*/
         return moveFields;
 
     }

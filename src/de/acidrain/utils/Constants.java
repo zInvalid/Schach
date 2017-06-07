@@ -13,11 +13,9 @@ public class Constants
     /**
      * ArrayList which contains all fields
      */
-    public static final ArrayList<FieldLabel> fields = new ArrayList<>();
-
     public static final FieldLabel[][] fieldsArr = new FieldLabel[8][8];
 
-
+    public static boolean multiplayer = false;
     /**
      * Cache label, which gets first clicked
      */
@@ -26,5 +24,5 @@ public class Constants
     /**
      * Players turn
      */
-    public static ChessColor turn = null;
+    public static ChessColor turn = ChessColor.WHITE;
 }

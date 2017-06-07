@@ -1,15 +1,15 @@
 package de.acidrain.gui;
 
-import de.acidrain.objects.*;
+import de.acidrain.game.objects.Figures.*;
 import de.acidrain.utils.Constants;
 
 import javax.swing.*;
 import java.awt.*;
 
-class BrettPanel extends JPanel
+class ChessPanel extends JPanel
 {
 
-    BrettPanel()
+    ChessPanel()
     {
         this.setLayout(new GridLayout(8, 8));
         for (int y = 0; y < 8; y++)
@@ -21,14 +21,12 @@ class BrettPanel extends JPanel
                 {
                     fieldLabel = new FieldLabel(imageForPosition(x, y), ChessColor.BLACK, x, y);
                     this.add(fieldLabel);
-                    Constants.fields.add(fieldLabel);
                     Constants.fieldsArr[x][y] = fieldLabel;
                 }
                 else
                 {
                     fieldLabel = new FieldLabel(imageForPosition(x, y), ChessColor.WHITE, x, y);
                     this.add(fieldLabel);
-                    Constants.fields.add(fieldLabel);
                     Constants.fieldsArr[x][y] = fieldLabel;
                 }
             }

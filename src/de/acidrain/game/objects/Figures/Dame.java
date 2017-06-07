@@ -1,4 +1,4 @@
-package de.acidrain.objects;
+package de.acidrain.game.objects.Figures;
 
 import de.acidrain.RessourceLoader;
 import de.acidrain.gui.ChessColor;
@@ -23,11 +23,6 @@ public class Dame extends Figur
     public ArrayList<FieldLabel> moveAblesFields()
     {
         ArrayList<FieldLabel> moveFields = new ArrayList<>();
-            /*if ((Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() != fieldLabel.getYCoord())
-                    || (Constants.selectedLabel.getXCoord() != fieldLabel.getXCoord() && Constants.selectedLabel.getYCoord() == fieldLabel.getYCoord()))
-            {
-                moveFields.add(fieldLabel);
-            }*/
 
         //------------------------------------------
         int x = selectedLabel.getXCoord();

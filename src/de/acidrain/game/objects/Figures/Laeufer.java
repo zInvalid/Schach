@@ -1,6 +1,5 @@
-package de.acidrain.objects;
+package de.acidrain.game.objects.Figures;
 
-import com.sun.org.apache.regexp.internal.RE;
 import de.acidrain.RessourceLoader;
 import de.acidrain.gui.ChessColor;
 import de.acidrain.gui.FieldLabel;

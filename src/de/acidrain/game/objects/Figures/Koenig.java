@@ -1,4 +1,4 @@
-package de.acidrain.objects;
+package de.acidrain.game.objects.Figures;
 
 import de.acidrain.RessourceLoader;
 import de.acidrain.gui.ChessColor;
@@ -102,20 +102,6 @@ public class Koenig extends Figur
             if(e.getFigur() == null  || !e.getFigur().getFigurColor().equals(Constants.selectedLabel.getFigur().getFigurColor()))
                 moveFields.add(e);
         }
-        /*for (FieldLabel fieldLabel : Constants.fields)
-        {
-            if (((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord() || (Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()) && (Constants.selectedLabel.getYCoord()) == fieldLabel.getYCoord()
-                    || ((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord() || (Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()) && (Constants.selectedLabel.getXCoord()) == fieldLabel.getXCoord()
-
-                    || (((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord()) && ((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord()))
-                    || (((Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()) && ((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()))
-                    || (((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord()) && ((Constants.selectedLabel.getXCoord() - 1) == fieldLabel.getXCoord()))
-                    || (((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord()) && ((Constants.selectedLabel.getXCoord() + 1) == fieldLabel.getXCoord())))
-            {
-                moveFields.add(fieldLabel);
-            }
-
-        }*/
         return moveFields;
     }
 }

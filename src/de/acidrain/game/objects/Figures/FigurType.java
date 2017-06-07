@@ -1,4 +1,4 @@
-package de.acidrain.objects;
+package de.acidrain.game.objects.Figures;
 
 public enum FigurType
 {

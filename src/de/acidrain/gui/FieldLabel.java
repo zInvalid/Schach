@@ -1,7 +1,7 @@
 package de.acidrain.gui;
 
 import de.acidrain.listener.MoveListener;
-import de.acidrain.objects.Figur;
+import de.acidrain.game.objects.Figures.Figur;
 
 import javax.swing.*;
 
@@ -51,4 +51,5 @@ public class FieldLabel extends JLabel
     {
         return y;
     }
+
 }

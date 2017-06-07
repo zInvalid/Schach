@@ -1,4 +1,4 @@
-package de.acidrain.objects;
+package de.acidrain.game.objects.Figures;
 
 import de.acidrain.RessourceLoader;
 import de.acidrain.gui.ChessColor;
@@ -155,16 +155,6 @@ public class Bauer extends Figur
                         moveFields.add(e);
                 }
             }
-            /*if (getFigurColor().equals(ChessColor.BLACK))
-            {
-                if (((Constants.selectedLabel.getYCoord() + 1) == fieldLabel.getYCoord() || (Constants.selectedLabel.getYCoord() + 2) == fieldLabel.getYCoord()) && Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord())
-                    moveFields.add(fieldLabel);
-            }
-            else
-            {
-                if (((Constants.selectedLabel.getYCoord() - 1) == fieldLabel.getYCoord() || (Constants.selectedLabel.getYCoord() - 2) == fieldLabel.getYCoord()) && Constants.selectedLabel.getXCoord() == fieldLabel.getXCoord())
-                    moveFields.add(fieldLabel);
-            }*/
         }
 
         return moveFields;
