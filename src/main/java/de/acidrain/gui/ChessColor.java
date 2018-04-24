@@ -10,6 +10,9 @@ public enum ChessColor
     private Color color;
     private String name;
 
+    ChessColor() {
+    }
+
     ChessColor(Color color, String name)
     {
         this.color = color;

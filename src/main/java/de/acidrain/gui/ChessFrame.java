@@ -22,6 +22,6 @@ public class ChessFrame extends JFrame
     @Override
     public void setTitle(String title)
     {
-        super.setTitle("Schach by R0bian - " + title + " ist dran!");
+        super.setTitle("Schach by Invalid - " + title + " ist dran!");
     }
 }

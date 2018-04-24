@@ -2,9 +2,9 @@ package de.acidrain.listener;
 
 import de.acidrain.game.Game;
 import de.acidrain.gui.FieldLabel;
-import de.acidrain.net.packets.Packet02Move;
 import de.acidrain.game.objects.Figures.Bauer;
 import de.acidrain.game.objects.Figures.FigurType;
+import de.acidrain.net.packets.PacketMove;
 import de.acidrain.utils.Constants;
 
 import javax.swing.*;
@@ -22,13 +22,18 @@ public class MoveListener implements MouseListener
         //Multiplayer Game
         if (Constants.multiplayer)
         {
-            if (Constants.turn.equals(Game.instance.player1.getColor()))
-            {
-                move(e, true);
-            }
+            if(Game.instance.waiting)
+                JOptionPane.showMessageDialog(null, "Warte auf Gegenspieler!");
             else
             {
-                JOptionPane.showMessageDialog(null, Constants.turn.toString() + " ist dran!");
+                if (Constants.turn.equals(Game.instance.player.getColor()))
+                {
+                    move(e, true);
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, Game.instance.player.getUsername() + " (" + Constants.turn.toString() + ") ist dran!");
+                }
             }
         }
         else
@@ -63,25 +68,25 @@ public class MoveListener implements MouseListener
 
     public void move(MouseEvent e, boolean multiplayer)
     {
-        FieldLabel jLabel = (FieldLabel) e.getSource();
+        FieldLabel clickedLabel = (FieldLabel) e.getSource();
 
-        if (Constants.selectedLabel == null && jLabel.getFigur() != null)
+        if (Constants.selectedLabel == null && clickedLabel.getFigur() != null)
         {
-            if (jLabel.getFigur().getFigurColor().equals(Constants.turn))
+            if (clickedLabel.getFigur().getFigurColor().equals(Constants.turn))
             {
-                Constants.selectedLabel = jLabel;
-                jLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
-                for (FieldLabel fieldLabel : jLabel.getFigur().moveAblesFields())
+                Constants.selectedLabel = clickedLabel;
+                clickedLabel.setBorder(BorderFactory.createLineBorder(Color.RED, 3));
+                for (FieldLabel fieldLabel : clickedLabel.getFigur().moveAblesFields())
                 {
                     fieldLabel.setBorder(BorderFactory.createLineBorder(Color.GREEN, 3));
                 }
             }
             else
             {
-                JOptionPane.showMessageDialog(null, Constants.turn.toString() + " ist dran!");
+                JOptionPane.showMessageDialog(null, "Falsche Farbe, " + Constants.turn.toString() + " ist dran!");
             }
         }
-        else if (Constants.selectedLabel != null && Constants.selectedLabel.equals(jLabel))
+        else if (Constants.selectedLabel != null && Constants.selectedLabel.equals(clickedLabel))
         {
             for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
             {
@@ -90,13 +95,13 @@ public class MoveListener implements MouseListener
             Constants.selectedLabel.setBorder(null);
             Constants.selectedLabel = null;
         }
-        else if (Constants.selectedLabel != null && (jLabel.getFigur() == null || jLabel.getFigur().getFigurColor() != Constants.selectedLabel.getFigur().getFigurColor()) && jLabel.getBorder() != null && ((LineBorder) jLabel.getBorder()).getLineColor().equals(Color.GREEN))
+        else if (Constants.selectedLabel != null && (clickedLabel.getFigur() == null || clickedLabel.getFigur().getFigurColor() != Constants.selectedLabel.getFigur().getFigurColor()) && clickedLabel.getBorder() != null && ((LineBorder) clickedLabel.getBorder()).getLineColor().equals(Color.GREEN))
         {
 
             if (multiplayer)
             {
-                Packet02Move movePacket = new Packet02Move(Game.instance.player1.getUsername(), Game.instance.player1.getColor(), Constants.selectedLabel.getXCoord(), Constants.selectedLabel.getYCoord(), jLabel.getXCoord(), jLabel.getYCoord());
-                movePacket.writeData(Game.instance.client);
+                PacketMove movePacket = new PacketMove(Game.instance.player.getColor(), Constants.selectedLabel.getXCoord(), Constants.selectedLabel.getYCoord(), clickedLabel.getXCoord(), clickedLabel.getYCoord());
+                Game.instance.client.sendTCP(movePacket);
             }
             for (FieldLabel fieldLabel : Constants.selectedLabel.getFigur().moveAblesFields())
             {
@@ -108,9 +113,13 @@ public class MoveListener implements MouseListener
                 bauer.setMoved(true);
             }
 
-            jLabel.setIcon(Constants.selectedLabel.getFigur().getFigurImage());
-            jLabel.setFigur(Constants.selectedLabel.getFigur());
-            Constants.turn = jLabel.getFigur().getFigurColor().getNegation();
+            clickedLabel.setIcon(Constants.selectedLabel.getFigur().getFigurImage());
+            clickedLabel.setFigur(Constants.selectedLabel.getFigur());
+
+            if(clickedLabel.getFigur().getType().equals(FigurType.KOENIG) && !clickedLabel.getFigur().getFigurColor().equals(Constants.turn))
+                JOptionPane.showMessageDialog(null, "Gz du hast gewonnen (" + Constants.turn + ")");
+
+            Constants.turn = clickedLabel.getFigur().getFigurColor().getNegation();
 
             Game.instance.frame.setTitle(Constants.turn.toString());
 

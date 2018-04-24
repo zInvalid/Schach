@@ -8,6 +8,6 @@ public class RessourceLoader
 
     public static Image getImage(String file)
     {
-        return Toolkit.getDefaultToolkit().getImage(instance.getClass().getResource("img/" + file));
+        return Toolkit.getDefaultToolkit().getImage(instance.getClass().getClassLoader().getResource("img/" + file));
     }
 }
