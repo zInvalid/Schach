@@ -32,7 +32,7 @@ public class MoveListener implements MouseListener
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null, Game.instance.player.getUsername() + " (" + Constants.turn.toString() + ") ist dran!");
+                    JOptionPane.showMessageDialog(null, /*.instance.player.getUsername()*/ " (" + Constants.turn.toString() + ") ist dran!");
                 }
             }
         }
@@ -112,12 +112,12 @@ public class MoveListener implements MouseListener
                 Bauer bauer = (Bauer) Constants.selectedLabel.getFigur();
                 bauer.setMoved(true);
             }
+            boolean win = false;
+            if(clickedLabel.getFigur() != null && clickedLabel.getFigur().getType().equals(FigurType.KOENIG) && !Constants.selectedLabel.getFigur().getFigurColor().equals(clickedLabel.getFigur().getFigurColor()))
+                win = true;
 
             clickedLabel.setIcon(Constants.selectedLabel.getFigur().getFigurImage());
             clickedLabel.setFigur(Constants.selectedLabel.getFigur());
-
-            if(clickedLabel.getFigur().getType().equals(FigurType.KOENIG) && !clickedLabel.getFigur().getFigurColor().equals(Constants.turn))
-                JOptionPane.showMessageDialog(null, "Gz du hast gewonnen (" + Constants.turn + ")");
 
             Constants.turn = clickedLabel.getFigur().getFigurColor().getNegation();
 
@@ -127,6 +127,10 @@ public class MoveListener implements MouseListener
             Constants.selectedLabel.setIcon(null);
             Constants.selectedLabel.setFigur(null);
             Constants.selectedLabel = null;
+
+            if(win)
+                JOptionPane.showMessageDialog(null, "Gz du hast gewonnen (" + Constants.turn + ")");
+
         }
     }
 }
